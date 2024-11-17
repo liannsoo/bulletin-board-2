@@ -10,8 +10,10 @@ task({ :sample_data => :environment }) do
     ActiveRecord::Base.connection.tables.each do |t|
       ActiveRecord::Base.connection.reset_pk_sequence!(t)
     end
+  end
 
   usernames = ["alice", "bob", "carol", "dave", "eve"]
+
   usernames.each do |username|
     user = User.new
     user.email = "#{username}@example.com"
